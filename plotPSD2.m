@@ -1,6 +1,6 @@
 function [a1,a2,a3,a4] = plotPSD2(aH,F,PSD,VLF,LF,HF,limX,limY)
     
-    cmap = cbrewer('seq', 'Blues', 4);
+    cmap = cbrewer2('seq', 'Blues', 4);
     color.vlf=cmap(1,:);    %vlf color
     color.lf=cmap(2,:);     %lf color
     color.hf=cmap(3,:);      %hf color

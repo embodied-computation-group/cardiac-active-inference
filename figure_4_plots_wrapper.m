@@ -1,7 +1,6 @@
 %% wrapper script to generate the plots in figure 4
 
 %% first, run the simulations for panels A & C
-% note this will take a *long* time
 
 figure_4_simulations_wrapper;
 

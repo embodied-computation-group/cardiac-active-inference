@@ -5,10 +5,12 @@
 %% initialize 
 clear h1 h2 spiderprob1 spiderprob2 mdp1 mdp2 
 close all
-load MDP_30n_100t_healthy.mat
-load MDP_30n_100t_lesion.mat
 
-figdir = [pwd '\figures\'];
+load(fullfile(datpath, 'MDP_30n_100t_healthy.mat'), 'mdp1')
+load(fullfile(datpath, 'MDP_30n_100t_lesion.mat'), 'mdp2')
+
+
+figdir = [pwd '\Figures\'];
 
 if ~exist(figdir)
     mkdir(figdir)
@@ -61,7 +63,7 @@ set(gca, 'FontSize', 12)
 xlim([0 40])
 box off
 fname = [figdir 'FearExpectation.pdf'];
-print(fname, '-dpdf', '-r600')
+% print(fname, '-dpdf', '-r600') % uncomment to save figure to disk 
 
 %% figure 3A - binned beats
 
@@ -192,4 +194,4 @@ xlabel('Trial Bin')
 set(gca, 'FontSize', 12)
 box off
 fname = [figdir 'cardiac_response.pdf'];
-print(fname, '-dpdf', '-r600')
+%print(fname, '-dpdf', '-r600') % uncomment to save figure to disk 

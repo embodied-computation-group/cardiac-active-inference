@@ -1,24 +1,7 @@
 %% wrapper script to run simulations and
 %% get canonical variables for each cardiac phase
 %% reproduces Figure 4B and 4D
-close all
-clear all
 
-% path to code repository - must be run from inside code repo dir
-addpath(genpath(pwd))
-% path to SPM 12 - change this
-addpath('C:\Users\Micah Allen\Dropbox\toolboxes\MatlabToolboxes\SPM12_latest')
-
-% intialize and close spm - need MDP functions on path
-spm fmri -nogui
-spm quit
-
-
-figdir = [pwd '\figures\'];
-
-if ~exist(figdir)
-    mkdir(figdir)
-end
 
 %% run model 1 - healthy extero 
 
@@ -72,7 +55,7 @@ toc
 [h1_3, h2_3, h3_3] = split_h_cardiac_extero(MDP3);
 
 figure; 
-cmap = cbrewer('seq', 'PuRd', 3);
+cmap = cbrewer2('seq', 'PuRd', 3);
 y = [h1_1 h2_1 h3_1; h1_2 h2_2 h3_2; h1_3 h2_3 h3_3];%; h1_4 h2_4 h3_4];
 b = bar(y,'FaceColor','flat');
 
@@ -88,7 +71,7 @@ box off;
 title('Cardiac Cycle and Exteroceptive Uncertainty')
 
 fname = [figdir 'fig4b_barplot_cardiac_cycle_extero.pdf'];
-print(fname, '-dpdf', '-r600')
+%print(fname, '-dpdf', '-r600')
 
 %%  figure 3D
 [h1_1, h2_1, h3_1] = split_h_cardiac_intero(MDP1);
@@ -96,7 +79,7 @@ print(fname, '-dpdf', '-r600')
 [h1_3, h2_3, h3_3] = split_h_cardiac_intero(MDP3);
 
 figure; 
-cmap = cbrewer('seq', 'PuRd', 3);
+cmap = cbrewer2('seq', 'PuRd', 3);
 y = [h1_1 h2_1 h3_1; h1_2 h2_2 h3_2; h1_3 h2_3 h3_3];%; h1_4 h2_4 h3_4];
 b = bar(y,'FaceColor','flat');
 
@@ -112,4 +95,4 @@ box off;
 title('Cardiac Cycle and Interoceptive Uncertainty')
 
 fname = [figdir 'fig4D_barplot_cardiac_cycle_intero.pdf'];
-print(fname, '-dpdf', '-r600')
+%print(fname, '-dpdf', '-r600')

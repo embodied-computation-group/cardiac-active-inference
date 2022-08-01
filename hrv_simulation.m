@@ -1,6 +1,9 @@
 %% global params
 
-input.T = 1000; %% warning, will take  a long time with this many trials! set to = 100 for testing. 
+% input.T = 1000; %% warning, will take  a long time with this many trials!
+% set to = 100 for testing. t = 1000 to reproduce figures in the paper.
+
+input.T = 100; %% warning, will take  a long time with this many trials! set to = 100 for testing. 
 
 
 %% run model 1 - healthy
@@ -44,4 +47,5 @@ MDP_hrv_3 = run_mdp_simulation(input);
 
 %%
 
-save MDP_hrv_models MDP_hrv_1 MDP_hrv_2 MDP_hrv_3
+save([datpath 'MDP_files/MDP_hrv_models.mat'], 'MDP_hrv_1', 'MDP_hrv_2', 'MDP_hrv_3')
+

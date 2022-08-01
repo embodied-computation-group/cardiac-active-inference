@@ -1,5 +1,5 @@
 
-function MDP = sim_save(ivparam, evparam)
+function MDP = sim_save(ivparam, evparam, datpath)
 
 
                 % setup parameters
@@ -21,8 +21,9 @@ function MDP = sim_save(ivparam, evparam)
                 MDP.Q = calc_q(MDP);
                 MDP.hr = calc_hr(MDP);
                 MDP.medianRT = [median(MDP.rt)];
-                filestr = sprintf(['/MDP_files/MDP_90vol_%dip_%dep.mat'],ivparam*100, evparam*100);
-                filename = [pwd filestr];
+       
+                filestr = sprintf(['MDP_files/MDP_90vol_%dip_%dep.mat'],ivparam*100, evparam*100);
+                filename = [datpath filestr];
                 save(filename, 'MDP')
                 %param_mat(intero_precision, extero_precision) = Q;
    

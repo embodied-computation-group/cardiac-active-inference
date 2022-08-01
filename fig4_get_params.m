@@ -6,7 +6,6 @@
 
 %% get parameters for intero and extero
 
-clear all
 evparam =[0.5:.1:1];
 ivparam =[0.5:.1:1];
 
@@ -16,8 +15,8 @@ for iv = 1:numel(ivparam)
     for ev = 1:numel(evparam)
  
                 
-                filestr = sprintf(['/MDPfiles/MDP_90vol_%dip_%dep.mat'],ivparam(iv)*100, evparam(ev)*100);
-                filename = [pwd filestr];
+                filestr = sprintf(['/MDP_files/MDP_90vol_%dip_%dep.mat'],ivparam(iv)*100, evparam(ev)*100);
+                filename = [datpath filestr];
                 load(filename, 'MDP')
                
                 param_mat_extero(iv, ev) = sum(calc_h_extero(MDP)); % exteroceptive confidence/entropy

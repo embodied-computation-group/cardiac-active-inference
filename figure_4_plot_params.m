@@ -1,7 +1,7 @@
 %% initialize
 
 
-figdir = [pwd '\figures\'];
+figdir = [pwd '\Figures\'];
 
 if ~exist(figdir)
     mkdir(figdir)
@@ -23,7 +23,7 @@ param_mat_in = param_mat_extero;
 %% figure
 
 figure
-cmap = cbrewer('div', 'Spectral', 50);
+cmap = cbrewer2('div', 'Spectral', 50);
 
 s=surf(tickparam, tickparam, param_mat_in); zlabel(zlab), xlabel(xlab),ylabel(ylab); colormap(cmap)
 set(gca, 'XTickLabel', tickparam, 'XTick',tickparam, 'YTickLabel', tickparam, 'YTick', tickparam)
@@ -36,7 +36,7 @@ pbaspect([1 1 1])
 
 fname = [figdir 'fig4A_extero.pdf'];
 title('Exteroceptive Uncertainty')
-print(fname, '-dpdf', '-r600');
+%print(fname, '-dpdf', '-r600');
 
 
 %% parameters - intero
@@ -53,7 +53,7 @@ param_mat_in = param_mat_intero;
 %% figure
 
 figure
-cmap = cbrewer('div', 'Spectral', 50);
+cmap = cbrewer2('div', 'Spectral', 50);
 
 s=surf(tickparam, tickparam, param_mat_in); zlabel(zlab), xlabel(xlab),ylabel(ylab); colormap(cmap)
 set(gca, 'XTickLabel', tickparam, 'XTick',tickparam, 'YTickLabel', tickparam, 'YTick', tickparam)
@@ -65,4 +65,4 @@ view(az,el);
 pbaspect([1 1 1])
 title('Interoceptive Uncertainty')
 fname = [figdir 'fig4C_intero.pdf'];
-print(fname, '-dpdf', '-r600');
+%print(fname, '-dpdf', '-r600');
